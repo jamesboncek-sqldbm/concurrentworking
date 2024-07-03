@@ -30,8 +30,8 @@ CREATE TABLE EDW.DimSalesTerritory
 )
 COMMENT = 'Sales Territory data';
 
--- ************************************** EDW.DimPromotion
-CREATE TABLE EDW.DimPromotion
+-- ************************************** EDW.DimPromotion1
+CREATE TABLE EDW.DimPromotion1
 (
  PromotionKey             number(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1,
  PromotionAlternateKey    number(38,0),
@@ -460,7 +460,7 @@ CREATE TABLE EDW.FactResellerSales
  CONSTRAINT FK_FactResellerSales_445 FOREIGN KEY ( ProductKey, DimProductPrototypeKey ) REFERENCES EDW.DimProduct ( ProductKey, DimProductPrototypeKey ),
  CONSTRAINT FK_FactResellerSales_447 FOREIGN KEY ( ResellerKey ) REFERENCES EDW.DimReseller ( ResellerKey ),
  CONSTRAINT FK_FactResellerSales_449 FOREIGN KEY ( EmployeeKey ) REFERENCES EDW.DimEmployee ( EmployeeKey ),
- CONSTRAINT FK_FactResellerSales_451 FOREIGN KEY ( PromotionKey ) REFERENCES EDW.DimPromotion ( PromotionKey ),
+ CONSTRAINT FK_FactResellerSales_451 FOREIGN KEY ( PromotionKey ) REFERENCES EDW.DimPromotion1 ( PromotionKey ),
  CONSTRAINT FK_FactResellerSales_453 FOREIGN KEY ( CurrencyKey ) REFERENCES EDW.DimCurrency ( CurrencyKey ),
  CONSTRAINT FK_FactResellerSales_455 FOREIGN KEY ( SalesTerritoryKey ) REFERENCES EDW.DimSalesTerritory ( SalesTerritoryKey ),
  CONSTRAINT FK_FactResellerSales_457 FOREIGN KEY ( OrderDateKey ) REFERENCES EDW.DimDate ( DateKey ),
@@ -499,7 +499,7 @@ CREATE TABLE EDW.FactInternetSales
 
  CONSTRAINT FK_FactInternetSales_427 FOREIGN KEY ( ProductKey, DimProductPrototypeKey ) REFERENCES EDW.DimProduct ( ProductKey, DimProductPrototypeKey ),
  CONSTRAINT FK_FactInternetSales_429 FOREIGN KEY ( CustomerKey ) REFERENCES EDW.DimCustomer ( CustomerKey ),
- CONSTRAINT FK_FactInternetSales_431 FOREIGN KEY ( PromotionKey ) REFERENCES EDW.DimPromotion ( PromotionKey ),
+ CONSTRAINT FK_FactInternetSales_431 FOREIGN KEY ( PromotionKey ) REFERENCES EDW.DimPromotion1 ( PromotionKey ),
  CONSTRAINT FK_FactInternetSales_433 FOREIGN KEY ( CurrencyKey ) REFERENCES EDW.DimCurrency ( CurrencyKey ),
  CONSTRAINT FK_FactInternetSales_435 FOREIGN KEY ( SalesTerritoryKey ) REFERENCES EDW.DimSalesTerritory ( SalesTerritoryKey ),
  CONSTRAINT FK_FactInternetSales_437 FOREIGN KEY ( OrderDateKey ) REFERENCES EDW.DimDate ( DateKey ),
